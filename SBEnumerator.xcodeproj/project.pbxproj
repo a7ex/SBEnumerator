@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FABB444920BB022400F91750 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB444820BB022400F91750 /* main.swift */; };
+		FABB445020BB02D700F91750 /* CLIArgsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB444F20BB02D700F91750 /* CLIArgsParser.swift */; };
+		FABB445220BB02EE00F91750 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB445120BB02EE00F91750 /* HelperFunctions.swift */; };
+		FABB445420BB209500F91750 /* CliArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB445320BB209500F91750 /* CliArguments.swift */; };
+		FABB445A20BB2ACA00F91750 /* StoryboardParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB445920BB2ACA00F91750 /* StoryboardParserDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,17 @@
 /* Begin PBXFileReference section */
 		FABB444520BB022300F91750 /* SBEnumerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SBEnumerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABB444820BB022400F91750 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FABB444F20BB02D700F91750 /* CLIArgsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIArgsParser.swift; sourceTree = "<group>"; };
+		FABB445120BB02EE00F91750 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		FABB445320BB209500F91750 /* CliArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CliArguments.swift; sourceTree = "<group>"; };
+		FABB445920BB2ACA00F91750 /* StoryboardParserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardParserDelegate.swift; sourceTree = "<group>"; };
+		FABB445D20BB617800F91750 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		FABB445E20BB637300F91750 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		FABB445F20BB637C00F91750 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		FABB446320BBC3DD00F91750 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FABB446420BBC3EA00F91750 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FABB446520BBC3FE00F91750 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		FABB446620BBC40700F91750 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +56,8 @@
 		FABB443C20BB022300F91750 = {
 			isa = PBXGroup;
 			children = (
+				FABB446320BBC3DD00F91750 /* LICENSE */,
+				FABB446420BBC3EA00F91750 /* README.md */,
 				FABB444720BB022300F91750 /* SBEnumerator */,
 				FABB444620BB022300F91750 /* Products */,
 			);
@@ -58,8 +75,41 @@
 			isa = PBXGroup;
 			children = (
 				FABB444820BB022400F91750 /* main.swift */,
+				FABB445920BB2ACA00F91750 /* StoryboardParserDelegate.swift */,
+				FABB445320BB209500F91750 /* CliArguments.swift */,
+				FABB446120BB655700F91750 /* Helper */,
+				FABB446220BB658F00F91750 /* Configurations */,
+				FABB446720BBC41800F91750 /* Supporting Files */,
 			);
 			path = SBEnumerator;
+			sourceTree = "<group>";
+		};
+		FABB446120BB655700F91750 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FABB445120BB02EE00F91750 /* HelperFunctions.swift */,
+				FABB444F20BB02D700F91750 /* CLIArgsParser.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FABB446220BB658F00F91750 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				FABB445D20BB617800F91750 /* Common.xcconfig */,
+				FABB445F20BB637C00F91750 /* Release.xcconfig */,
+				FABB445E20BB637300F91750 /* Debug.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		FABB446720BBC41800F91750 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FABB446620BBC40700F91750 /* .gitignore */,
+				FABB446520BBC3FE00F91750 /* .swiftlint.yml */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -69,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FABB444C20BB022400F91750 /* Build configuration list for PBXNativeTarget "SBEnumerator" */;
 			buildPhases = (
+				FA26EEF220BBC7410036C65F /* ShellScript */,
 				FABB444120BB022300F91750 /* Sources */,
 				FABB444220BB022300F91750 /* Frameworks */,
 				FABB444320BB022300F91750 /* CopyFiles */,
@@ -114,12 +165,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FA26EEF220BBC7410036C65F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FABB444120BB022300F91750 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABB445020BB02D700F91750 /* CLIArgsParser.swift in Sources */,
+				FABB445A20BB2ACA00F91750 /* StoryboardParserDelegate.swift in Sources */,
 				FABB444920BB022400F91750 /* main.swift in Sources */,
+				FABB445220BB02EE00F91750 /* HelperFunctions.swift in Sources */,
+				FABB445420BB209500F91750 /* CliArguments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,21 +312,15 @@
 		};
 		FABB444D20BB022400F91750 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FABB445E20BB637300F91750 /* Debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GNGL9A39VR;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		FABB444E20BB022400F91750 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FABB445F20BB637C00F91750 /* Release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GNGL9A39VR;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
