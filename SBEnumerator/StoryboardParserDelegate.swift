@@ -9,8 +9,9 @@
 import Cocoa
 
 class StoryboardParserDelegate: NSObject, XMLParserDelegate {
-    var collectionViewCellIdentifiers = Set<String>()
-    var tableViewCellIdentifiers = Set<String>()
+    private final var collectionViewCellIdentifiers = Set<String>()
+    private final var tableViewCellIdentifiers = Set<String>()
+    private final var accessibiltyIdentifiers = Set<String>()
     private let indent = "    "
 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
@@ -25,17 +26,30 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
                 !identifier.isEmpty {
                 tableViewCellIdentifiers.insert(identifier)
             }
+        case "accessibility":
+            if let identifier = attributeDict["identifier"],
+                !identifier.isEmpty {
+                if accessibiltyIdentifiers.contains(identifier) {
+                    writeToStdError("Dupicate accessibility identifiers: \"\(identifier)\"!\n")
+                } else {
+                    accessibiltyIdentifiers.insert(identifier)
+                }
+            }
         default:
             break
         }
     }
 
     final func tvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: storyBoardParser.tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent)
+        return cellIdentifiersEnum(for: tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent)
     }
 
     final func cvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: storyBoardParser.collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent)
+        return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent)
+    }
+    
+    final func aiCellIdentifiersEnum(blockIndent: String = "") -> String {
+        return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "AccessibilityIdentifiers", blockIndent: blockIndent)
     }
 
     private final func cellIdentifiersEnum(for enums: Set<String>, named enumName: String, blockIndent: String = "") -> String {
