@@ -41,17 +41,26 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
     }
 
     final func tvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        let topCopmment = "\(blockIndent)// All UITableViewCell reuseIdentifiers, which were found in all storyboards\n// and xibs at the last time the app was built\n"
+        let topCopmment = """
+        \(blockIndent)// All UITableViewCell reuseIdentifiers, which were found in all storyboards
+        \(blockIndent)// and xibs at the last time SBEnumerator ran and scanned the IB files\n
+        """
         return cellIdentifiersEnum(for: tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent, topComment: topCopmment)
     }
 
     final func cvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        let topCopmment = "\(blockIndent)// All UICollectionViewCell reuseIdentifiers, which were found in all storyboards\n// and xibs at the last time the app was built\n"
+        let topCopmment = """
+        \(blockIndent)// All UICollectionViewCell reuseIdentifiers, which were found in all storyboards
+        \(blockIndent)// and xibs at the last time SBEnumerator ran and scanned the IB files\n
+        """
         return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent, topComment: topCopmment)
     }
 
     final func aiCellIdentifiersEnum(blockIndent: String = "") -> String {
-        let topCopmment = "\(blockIndent)// All Accessibility Identifiers, which were found in all storyboards\n// and xibs at the last time the app was built\n"
+        let topCopmment = """
+        \(blockIndent)// All Accessibility Identifiers, which were found in all storyboards
+        \(blockIndent)// and xibs at the last time SBEnumerator ran and scanned the IB files\n
+        """
         return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "Accessibility", blockIndent: blockIndent, topComment: topCopmment)
     }
 
