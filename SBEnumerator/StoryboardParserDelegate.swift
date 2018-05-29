@@ -41,23 +41,26 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
     }
 
     final func tvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent)
+        let topCopmment = "// All UITableViewCell reuseIdentifiers, which were found in all storyboards and xibs\n// at the last time the app was built\n"
+        return cellIdentifiersEnum(for: tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent, topComment: topCopmment)
     }
 
     final func cvCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent)
+        let topCopmment = "// All UICollectionViewCell reuseIdentifiers, which were found in all storyboards and xibs\n// at the last time the app was built\n"
+        return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent, topComment: topCopmment)
     }
 
     final func aiCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "Accessibility", blockIndent: blockIndent)
+        let topCopmment = "// All Accessibility Identifiers, which were found in all storyboards and xibs\n// at the last time the app was built\n"
+        return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "Accessibility", blockIndent: blockIndent, topComment: topCopmment)
     }
 
-    private final func cellIdentifiersEnum(for enums: Set<String>, named enumName: String, blockIndent: String = "") -> String {
+    private final func cellIdentifiersEnum(for enums: Set<String>, named enumName: String, blockIndent: String = "", topComment: String = "") -> String {
         guard !enums.isEmpty else {
             return ""
         }
         let enumArray = enums.sorted()
-        var enumString = "\(blockIndent)enum \(enumName): String {\n"
+        var enumString = "\(topComment)\(blockIndent)enum \(enumName): String {\n"
         for ident in enumArray {
             let key = snakeCase(ident)
             if key == ident {

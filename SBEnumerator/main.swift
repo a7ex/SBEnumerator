@@ -53,13 +53,13 @@ struct StoryboardIdentifiers {
 """
 
 if let identifiers = storyBoardParser.tvCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
-    filecontents += "\n\(identifiers)"
+    filecontents += "\n\n\(identifiers)"
 }
 if let identifiers = storyBoardParser.cvCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
-    filecontents += "\n\(identifiers)"
+    filecontents += "\n\n\(identifiers)"
 }
 if let identifiers = storyBoardParser.aiCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
-    filecontents += "\n\(identifiers)"
+    filecontents += "\n\n\(identifiers)"
 }
 filecontents += "\n}"
 
