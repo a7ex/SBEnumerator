@@ -47,9 +47,9 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
     final func cvCellIdentifiersEnum(blockIndent: String = "") -> String {
         return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent)
     }
-    
+
     final func aiCellIdentifiersEnum(blockIndent: String = "") -> String {
-        return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "AccessibilityIdentifiers", blockIndent: blockIndent)
+        return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "Accessibility", blockIndent: blockIndent)
     }
 
     private final func cellIdentifiersEnum(for enums: Set<String>, named enumName: String, blockIndent: String = "") -> String {
