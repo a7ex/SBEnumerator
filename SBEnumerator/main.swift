@@ -50,14 +50,19 @@ var filecontents = """
 import Foundation
 
 struct StoryboardIdentifiers {
-
-\(storyBoardParser.tvCellIdentifiersEnum(blockIndent: "    "))
-
-\(storyBoardParser.cvCellIdentifiersEnum(blockIndent: "    "))
-
-\(storyBoardParser.aiCellIdentifiersEnum(blockIndent: "    "))
-}
 """
+
+if let identifiers = storyBoardParser.tvCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
+    filecontents += "\n\(identifiers)"
+}
+if let identifiers = storyBoardParser.cvCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
+    filecontents += "\n\(identifiers)"
+}
+if let identifiers = storyBoardParser.aiCellIdentifiersEnum(blockIndent: "    ").nonEmptyString {
+    filecontents += "\n\(identifiers)"
+}
+filecontents += "\n}"
+
 
 writeToStdOut(filecontents)
 
