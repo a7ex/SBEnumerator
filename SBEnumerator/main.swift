@@ -63,7 +63,6 @@ if let identifiers = storyBoardParser.aiCellIdentifiersEnum(blockIndent: "    ")
 }
 filecontents += "\n}"
 
-
 writeToStdOut(filecontents)
 
 exit(EXIT_SUCCESS)
