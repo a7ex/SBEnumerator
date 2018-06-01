@@ -2,13 +2,13 @@
 
 ## Overview
 
-Generate swift enums for cell reuseidentifiers defined in storyboards
+Generate swift enums for cell reuseidentifiers and accessibilty identifiers defined in storyboards
 
 A macOS command line tool that generates Swift Enums based on storyboard files in XML format.
 
-This command line tool parses the storyboard files, which are passed as arguments for tableViewCell identifiers and collectionViewCell identifiers. It creates a struct with two enums, which list the names.
+This command line tool parses the storyboard files, which are passed as arguments for tableViewCell identifiers, collectionViewCell identifiers and accessibility identifiers. It creates a struct with three enums, which list the names.
 
-If the reuseIdentifier names contain spaces, those are replaced by underscores for the enum cases, but kept preserved as string rawValue.
+If the identifier names contain spaces, those are replaced by underscores for the enum cases, but kept preserved as string rawValue.
 
 Written in Swift 4.
 
