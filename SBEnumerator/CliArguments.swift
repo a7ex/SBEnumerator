@@ -18,6 +18,7 @@ struct CliArguments {
     let help: Bool
     let paths: [String]
     let version: Bool
+    let createStructs: Bool
 
     static func expandedPropertyName(for shortform: String) -> String {
         switch shortform {
@@ -25,6 +26,8 @@ struct CliArguments {
             return "help"
         case "v":
             return "version"
+        case "s":
+            return "structs"
         default:
             return shortform
         }
@@ -48,6 +51,8 @@ struct CliArguments {
 
         // version:
         version = (cliParams["version"] as? Bool) ?? (cliParams["v"] as? Bool) ?? false
+        
+        createStructs = (cliParams["structs"] as? Bool) ?? (cliParams["s"] as? Bool) ?? false
     }
 
     func printHelpText() {
@@ -63,6 +68,7 @@ struct CliArguments {
         \(programName) - \(versionString)
         Created by Alex da Franca - Farbflash
         Usage: \(programName) [options]
+            -s, --structs:\n    Create Structs if true, otherwise create Enums.
             -h, -?, --help:\n    Prints a help message.
             -v, --version:\n    Prints version information.
             all remaining parameters are considered paths to xml input files\n\n"
