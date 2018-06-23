@@ -14,7 +14,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
     private final var tableViewCellIdentifiers = Set<String>()
     private final var accessibiltyIdentifiers = Set<String>()
     private let indent = "    "
-    
+
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         switch elementName {
         case "collectionViewCell":
@@ -40,7 +40,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
             break
         }
     }
-    
+
     final func tvCellIdentifiersEnum(blockIndent: String = "") -> String {
         let topCopmment = """
         \(blockIndent)// All UITableViewCell reuseIdentifiers, which were found in all storyboards
@@ -52,7 +52,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
             return cellIdentifiersEnum(for: tableViewCellIdentifiers, named: "TableCell", blockIndent: blockIndent, topComment: topCopmment)
         }
     }
-    
+
     final func cvCellIdentifiersEnum(blockIndent: String = "") -> String {
         let topCopmment = """
         \(blockIndent)// All UICollectionViewCell reuseIdentifiers, which were found in all storyboards
@@ -64,7 +64,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
             return cellIdentifiersEnum(for: collectionViewCellIdentifiers, named: "CollectionCell", blockIndent: blockIndent, topComment: topCopmment)
         }
     }
-    
+
     final func aiCellIdentifiersEnum(blockIndent: String = "") -> String {
         let topCopmment = """
         \(blockIndent)// All Accessibility Identifiers, which were found in all storyboards
@@ -76,7 +76,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
             return cellIdentifiersEnum(for: accessibiltyIdentifiers, named: "Accessibility", blockIndent: blockIndent, topComment: topCopmment)
         }
     }
-    
+
     private final func cellIdentifiersEnum(for enums: Set<String>, named enumName: String, blockIndent: String = "", topComment: String = "") -> String {
         guard !enums.isEmpty else {
             return ""
@@ -94,7 +94,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
         enumString += "\(blockIndent)}"
         return enumString
     }
-    
+
     private final func cellIdentifiersStruct(for enums: Set<String>, named enumName: String, blockIndent: String = "", topComment: String = "") -> String {
         guard !enums.isEmpty else {
             return ""
@@ -108,7 +108,7 @@ class StoryboardParserDelegate: NSObject, XMLParserDelegate {
         enumString += "\(blockIndent)}"
         return enumString
     }
-    
+
     private final func snakeCase(_ input: String) -> String {
         return input.replacingOccurrences(of: " ", with: "_")
     }

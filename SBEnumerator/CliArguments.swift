@@ -51,7 +51,7 @@ struct CliArguments {
 
         // version:
         version = (cliParams["version"] as? Bool) ?? (cliParams["v"] as? Bool) ?? false
-        
+
         createStructs = (cliParams["structs"] as? Bool) ?? (cliParams["s"] as? Bool) ?? false
     }
 
