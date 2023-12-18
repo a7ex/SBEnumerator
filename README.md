@@ -28,8 +28,8 @@ brew install sbenumerator
 ```
 ### Download binary
 
-- Download the `sbenumerator` app binary from the latest [release](https://github.com/a7ex/SBEnumerator/tree/master/release)
-- Copy `SBEnumerator` to your desktop
+- Download the `sbenumerator` binary from the latest [release](https://github.com/a7ex/SBEnumerator/releases/latest)
+- Copy `sbenumerator` to your desktop
 - Open a Terminal window and run this command to give the app permission to execute:
 
 ```
@@ -44,7 +44,7 @@ Or build the tool in Xcode yourself:
 
 - Drag `sbenumerator` from the Finder window to your desktop
 
-## How to install it
+## How to install it (if not installed with homebrew)
 
 Assuming that the `sbenumerator` app is on your desktop…
 
@@ -52,28 +52,36 @@ Open a Terminal window and run this command:
 ```
 cp ~/Desktop/sbenumerator /usr/local/bin/
 ```
+
+## How to verify installation
+
 Verify `sbenumerator` is in your search path by running this in Terminal:
 ```
 sbenumerator
 ```
 You should see the tool respond like this:
 ```
-Error: Missing expected argument '<ib-files> ...'
+Error: Argument error. No Interface Builder file was provided. Use --help for a usage description.
+```
+Now run:
+```
+sbenumerator --help
+```
+The output should be:
+```
+OVERVIEW: SBEnumerator 1.0.1
+Parse Xcode storyboard and xib files and gather cell- and accessibility identifiers, which are used in Interface Builder
+files.
 
-OVERVIEW: SBEnumerator 1.0.0
-Parse Xcode storyboard and xib files and gather cell- and accessibility
-identifiers, which are used in Interface Builder files.
-
-USAGE: sbenumerator [--static-strings ...] [--version ...] <ib-files> ...
+USAGE: sbenumerator [--static-strings ...] [--version ...] [<ib-files> ...]
 
 ARGUMENTS:
-  <ib-files>              The paths to the Interface Builder files.
+  <ib-files>              The paths to the Interface Builder files (storyboard and xib).
 
 OPTIONS:
   -s, --static-strings    Output static strings instead of enum cases.
-  -v, --version           Show version number.
+  -v, --version           Show version number of this tool.
   -h, --help              Show help information.
-
 ```
 Now that a copy of `sbenumerator` is in your search path, delete it from your desktop.
 
