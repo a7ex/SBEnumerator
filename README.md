@@ -22,12 +22,12 @@ Using a Swift code generator is very different from using a ibrary API. If you h
 
 ## How to get it
 
-- Download the `SBEnumerator` app binary from the latest [release](https://github.com/a7ex/SBEnumerator/tree/master/release)
+- Download the `sbenumerator` app binary from the latest [release](https://github.com/a7ex/SBEnumerator/tree/master/release)
 - Copy `SBEnumerator` to your desktop
 - Open a Terminal window and run this command to give the app permission to execute:
 
 ```
-chmod +x ~/Desktop/SBEnumerator
+chmod +x ~/Desktop/sbenumerator
 ```
 
 Or build the tool in Xcode yourself:
@@ -36,41 +36,52 @@ Or build the tool in Xcode yourself:
 - Build the project
 - Open a Finder window to the executable file
 
-- Drag `SBEnumerator` from the Finder window to your desktop
+- Drag `sbenumerator` from the Finder window to your desktop
 
 ## How to install it
 
-Assuming that the `SBEnumerator` app is on your desktop…
+Assuming that the `sbenumerator` app is on your desktop…
 
 Open a Terminal window and run this command:
 ```
-cp ~/Desktop/SBEnumerator /usr/local/bin/
+cp ~/Desktop/sbenumerator /usr/local/bin/
 ```
-Verify `SBEnumerator` is in your search path by running this in Terminal:
+Verify `sbenumerator` is in your search path by running this in Terminal:
 ```
-SBEnumerator
+sbenumerator
 ```
 You should see the tool respond like this:
 ```
-Expected path to an XML file!
-SBEnumerator - Version:  (Build: )
-Created by Alex da Franca - Farbflash
-Usage: SBEnumerator [options]
-  -h, -?, --help:
-    Prints a help message.
-  -v, --version:
-    Prints version information.
-  all remaining parameters are considered paths to xml input files
+Error: Missing expected argument '<ib-files> ...'
+
+OVERVIEW: SBEnumerator 1.0.0
+Parse Xcode storyboard and xib files and gather cell- and accessibility
+identifiers, which are used in Interface Builder files.
+
+USAGE: sbenumerator [--static-strings ...] [--version ...] <ib-files> ...
+
+ARGUMENTS:
+  <ib-files>              The paths to the Interface Builder files.
+
+OPTIONS:
+  -s, --static-strings    Output static strings instead of enum cases.
+  -v, --version           Show version number.
+  -h, --help              Show help information.
 
 ```
-Now that a copy of `SBEnumerator` is in your search path, delete it from your desktop.
+Now that a copy of `sbenumerator` is in your search path, delete it from your desktop.
 
 You're ready to go! 🎉
 
 ## How to use it
 
-Open a Terminal window and pass `SBEnumerator` one or more file path to storyboard XML files:
+Open a Terminal window and pass `sbenumerator` one or more file path to storyboard XML files:
 ```
-SBEnumerator /path/to/some/Main.storyboard > CellIdentifiers.swift
+sbenumerator /path/to/some/Main.storyboard > StoryboardIdentifiers.swift
 ```
-The tool prints the swift code. Write the output into a swift file.
+The tool prints the swift code. Write the output into a swift file.  
+Or  
+Find all storyboard and xib files in the current wroking directory and write the output into file 'StoryboardIdentifiers.swift':
+```
+find . -name "*.storyboard" -o -name "*.xib" | xargs sbenumerator > StoryboardIdentifiers.swift
+```
