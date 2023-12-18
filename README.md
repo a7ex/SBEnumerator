@@ -71,6 +71,13 @@ You're ready to go! 🎉
 
 Open a Terminal window and pass `SBEnumerator` one or more file path to storyboard XML files:
 ```
-SBEnumerator /path/to/some/Main.storyboard > CellIdentifiers.swift
+SBEnumerator /path/to/some/Main.storyboard > StoryboardIdentifiers.swift
 ```
 The tool prints the swift code. Write the output into a swift file.
+
+```
+find . -name "*.storyboard" -o -name "*.xib" | xargs SBEnumerator > StoryboardIdentifiers.swift
+```
+Find all storyboard and xib files in the current wroking directory and write the output into file 'StoryboardIdentifiers.swift'.
+
+
