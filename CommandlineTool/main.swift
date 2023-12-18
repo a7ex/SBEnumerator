@@ -10,7 +10,7 @@ import Foundation
 import ArgumentParser
 import SBEnumeratorLib
 
-private let marketingVersion = "1.0.0"
+private let marketingVersion = "1.0.1"
 
 struct sbenumerator: ParsableCommand {
     static let configuration = CommandConfiguration(
@@ -20,18 +20,19 @@ struct sbenumerator: ParsableCommand {
     @Flag(name: .shortAndLong, help: "Output static strings instead of enum cases.")
     var staticStrings: Int
 
-    @Flag(name: .shortAndLong, help: "Show version number.")
+    @Flag(name: .shortAndLong, help: "Show version number of this tool.")
     var version: Int
 
-    @Argument(help: "The paths to the Interface Builder files.")
-    var ibFiles: [String]
+    @Argument(help: "The paths to the Interface Builder files (storyboard and xib).")
+    var ibFiles: [String] = []
 
     mutating func run() throws {
-        guard version != 1 else {
+        guard version == 0 else {
             print(marketingVersion)
             return
         }
         guard !ibFiles.isEmpty else {
+            // writeToStdError("Argument error. No Interface Builder File was provided. Use --help for a usage  description.")
             throw ParseError.argumentError
         }
 
@@ -79,8 +80,15 @@ enum StoryboardIdentifiers {
     }
 }
 
-enum ParseError: Error {
+enum ParseError: LocalizedError {
     case argumentError
+
+    var errorDescription: String? {
+        switch self {
+        case .argumentError:
+            return "Argument error. No Interface Builder file was provided. Use --help for a usage description."
+        }
+    }
 }
 
 sbenumerator.main()

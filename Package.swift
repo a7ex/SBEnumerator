@@ -41,7 +41,12 @@ let package = Package(
         ),
         .testTarget(
             name: "SBEnumeratorTests",
-            dependencies: ["SBEnumeratorLib"]
+            dependencies: ["SBEnumeratorLib"],
+            resources: [
+                .copy("Resources/LaunchScreen.xml"),
+                .copy("Resources/Storyboard.xml"),
+                .copy("Resources/View.xml")
+            ]
         )
     ]
 )
