@@ -37,7 +37,7 @@ public class InterfaceBuilderParser: NSObject, XMLParserDelegate {
             if let identifier = attributeDict["identifier"],
                 !identifier.isEmpty {
                 if accessibiltyIdentifiers.contains(identifier) {
-                    errorStream("Dupicate accessibility identifiers: \"\(identifier)\"!\n")
+                    errorStream("Duplicate accessibility identifiers: \"\(identifier)\"!\n")
                 } else {
                     accessibiltyIdentifiers.insert(identifier)
                 }

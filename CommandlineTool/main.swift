@@ -36,7 +36,7 @@ struct sbenumerator: ParsableCommand {
         }
 
         let ibparser = InterfaceBuilderParser(createStaticStrings: (staticStrings != 0)) { error in
-            writeToStdOutLn(error)
+            writeToStdOut("// \(error)")
         }
 
         for storyboardFile in ibFiles {
