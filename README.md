@@ -21,6 +21,12 @@ Written in Swift 4.
 Using a Swift code generator is very different from using a ibrary API. If you have never worked with a code generator before, check out [this blog post](https://ijoshsmith.com/2016/11/03/swift-json-library-vs-code-generation/) for a quick overview.
 
 ## How to get it
+### Using homebrew
+```
+brew tap a7ex/homebrew-formulae
+brew install sbenumerator
+```
+### Download binary
 
 - Download the `sbenumerator` app binary from the latest [release](https://github.com/a7ex/SBEnumerator/tree/master/release)
 - Copy `SBEnumerator` to your desktop
