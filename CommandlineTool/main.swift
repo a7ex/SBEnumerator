@@ -66,15 +66,15 @@ import Foundation
 enum StoryboardIdentifiers {
 """
         if let identifiers = ibparser.tvCellIdentifiersEnum(blockIndent: ident).nonEmptyString {
-            filecontents += "\n\n\(identifiers)"
+            filecontents += "\n\(identifiers)\n"
         }
         if let identifiers = ibparser.cvCellIdentifiersEnum(blockIndent: ident).nonEmptyString {
-            filecontents += "\n\n\(identifiers)"
+            filecontents += "\n\(identifiers)\n"
         }
         if let identifiers = ibparser.aiCellIdentifiersEnum(blockIndent: ident).nonEmptyString {
-            filecontents += "\n\n\(identifiers)"
+            filecontents += "\n\(identifiers)\n"
         }
-        filecontents += "\n}"
+        filecontents += "}"
 
         writeToStdOut(filecontents)
     }

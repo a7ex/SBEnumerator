@@ -77,6 +77,10 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
+            argument = "/Users/alex/Desktop/Main.storyboard"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-v"
             isEnabled = "NO">
          </CommandLineArgument>
