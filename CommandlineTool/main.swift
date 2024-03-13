@@ -10,7 +10,7 @@ import Foundation
 import ArgumentParser
 import SBEnumeratorLib
 
-private let marketingVersion = "1.0.1"
+private let marketingVersion = "1.0.3"
 
 struct sbenumerator: ParsableCommand {
     static let configuration = CommandConfiguration(
